@@ -13,9 +13,7 @@ A relationship is simply a connection or association between 2 or more tables.
 
 In very simple terms, a foreign key is a column in a table that help us form a relationship with another table through the primary key of that other table.
 
-- For our instance if we wanted to have a corelation between person data and car data without the existence of foreign keys we would have to include additional columns with the car data to our person table. This is however not best practice and can quickly get tedious.
-
-- Thanks to foreign keys. we only need to add a single extra column to table person and this column will act as the foreign key.
+- For our instance if we wanted to have a corelation between person data and car data, one technique to achieve this would be to include additional columns with the car data to our person table. This is however not best practice as Postgress is a **relational database** thus giving us the abitlity to form connections between different tables through the introduction of a foreign key which is just a single column.
 
 - This foreign key will connect to table car through the the primary key of car (which is the id field)
 
@@ -27,7 +25,7 @@ We'll start by dropping the tables and then we'll recreate them but this time ad
 
 Before adding the foreign key however, there are a number of things we should note:
 
-1. Since the foreign key is connecting to the primary key in car, these two should have the same data type. **However, in our case we can't give our foreign key the BIGSERIAL data type to match id in car because BIGSERIAL is incremented automatically for each row. We'll give it the BIGINT data type which is basically the same type as BIGSERIAL but is'nt incremented for each row.**
+1. Since the foreign key is referring to the primary key in car, these two should have the same data type. **However, in our case we can't give our foreign key the BIGSERIAL data type to match id in car because BIGSERIAL is incremented automatically for each row. We'll give it the BIGINT data type instead which is basically the same type as BIGSERIAL except it is'nt incremented for each row.**
 
 1. We will not add the **NOT NULL** constraint because not every person in this relationship is going to be assigned a car.
 
